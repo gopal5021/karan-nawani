@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- SEO META -->
+        <title>Karan Nawani | Indian Pop Artist</title>
+        <meta name="description" content="Official music website of Karan Nawani, Indian pop artist from Dehradun. Explore songs, artist journey, and social platforms." />
+        <meta name="keywords" content="Karan Nawani, Indian pop artist, Karan Nawani songs, unplugged covers, Indian music" />
+        <meta name="author" content="Karan Nawani" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- OPEN GRAPH -->
+        <meta property="og:title" content="Karan Nawani | Indian Pop Artist" />
+        <meta property="og:description" content="Explore songs, journey, and music of Indian pop artist Karan Nawani." />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" />
+        <meta property="og:url" content="https://karannawani.com" />
+        <meta property="og:type" content="website" />
+        <!-- TWITTER -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./output.css">
+        <style>
+            .section {
+            position: absolute;
+            inset: 0;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            .hidden-section {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            }
+            .active-section {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            }
+            .nav-btn {
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+            }
+            .nav-btn.active {
+            color: #a855f7;
+            font-weight: 600;
+            }
+            .nav-btn.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            background: #a855f7;
+            border-radius: 999px;
+            }
+            /* Highlight */
+            .highlight {
+            background: rgba(168, 85, 247, 0.3);
+            color: #d8b4fe;
+            padding: 0 4px;
+            border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body class="bg-black text-white font-[Poppins] overflow-hidden">
+        <!-- NAVBAR -->
+        <nav class="fixed top-0 w-full px-8 py-4 flex justify-between items-center bg-black/60 backdrop-blur-md z-50">
+            <h1 class="text-xl font-bold text-purple-500">Karan Nawani</h1>
+            <ul class="flex gap-8 text-sm items-center">
+                <li><button class="nav-btn active" onclick="showSection('home', this)">Home</button></li>
+                <li><button class="nav-btn" onclick="showSection('about', this)">About</button></li>
+                <li><button class="nav-btn" onclick="showSection('songs', this)">Songs</button></li>
+                <li><button class="nav-btn" onclick="showSection('contact', this)">Contact</button></li>
+            </ul>
+        </nav>
+        <main class="relative h-screen w-full">
+            <!-- HOME -->
+            <section id="home" class="section active-section flex flex-col justify-center items-center text-center px-6">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4"
+                    class="w-48 h-48 rounded-full border-4 border-purple-500"
+                    alt="Karan Nawani">
+                <h2 class="text-5xl font-bold text-purple-500 mt-5">Karan Nawani</h2>
+                <h3 class="text-2xl mt-3">1M+ YouTube Subscribers • Millions of Streams • Since 2017</h3>
+                <p class="text-gray-400 mt-4">Indian Pop Artist • Unplugged Covers & Originals</p>
+                <p class="text-gray-400 mt-4">Singer • Composer • Songwriter</p>
+                <p class="text-gray-400 mt-4">Music that connects millions</p>
+            </section>
+            <!-- ABOUT -->
+            <section id="about" class="section hidden-section max-w-5xl mx-auto px-6 overflow-y-auto">
+                <h2 class="text-4xl font-bold text-purple-500 mb-6 text-center">About Karan Nawani</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    Karan Nawani is an Indian pop artist based in Dehradun, Uttarakhand. He answered
+                    the call to music in 2017 and has been on a remarkable journey ever since.
+                    With over <span class="text-white font-semibold">1 million subscribers on YouTube</span>,
+                    Nawani reaches and inspires millions of listeners around the globe.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    Young, passionate, and constantly exploring new sonic landscapes, Karan Nawani
+                    brings a fresh and distinctive imprint to modern Indian pop music. His sound
+                    blends emotion, simplicity, and contemporary influences, resonating deeply
+                    with audiences across generations.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    A <span class="text-white font-semibold">self-taught producer, composer, and singer-songwriter</span>,
+                    Nawani’s interdisciplinary approach sets him apart in today’s music scene.
+                    From unplugged covers to original compositions and creative mashups, his work
+                    reflects authenticity, creativity, and a deep love for storytelling through sound.
+                </p>
+            </section>
+            <!-- SONGS -->
+            <section id="songs" class="section hidden-section px-6 overflow-y-auto">
+                <h2 class="text-4xl font-bold text-purple-500 mb-6 text-center">Songs</h2>
+                <!-- SEARCH BAR -->
+                <div class="max-w-xl mx-auto mb-8 relative h-[52px]">
+                    <input
+                        id="songSearch"
+                        type="text"
+                        spellcheck="false"
+                        placeholder="Search songs..."
+                        oninput="filterSongs();toggleClearBtn()"
+                        class="w-full px-4 py-3 pr-10 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        />
+                    <!-- RESULTS COUNT -->
+                    <p
+                        id="resultCount"
+                        class="hidden text-sm text-gray-400 mt-2 text-left max-w-xl mx-auto"
+                        >
+                        0 / 60 found
+                    </p>
+                    <!-- NO RESULTS -->
+                    <p
+                        id="noResults"
+                        class="hidden text-center text-gray-400 mt-10"
+                        >
+                        No results found
+                    </p>
+                    <!-- CLEAR BUTTON -->
+                    <button
+                        id="clearBtn"
+                        onclick="clearSearch()"
+                        class="hidden absolute right-3 inset-y-0 flex items-center
+                        text-purple-400 hover:text-purple-500 transition text-lg">
+                    ❌
+                    </button>
+                </div>
+                <div id="songGrid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-24">
+                    <a target="_blank" data-title="tere jeya hor disda" href="https://www.youtube.com/results?search_query=karan+nawani+tere+jeya+hor+disda" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Tere Jeya Hor Disda</a>
+                    <a target="_blank" data-title="tauba tumahre ye ishaare suno na suno na" href="https://www.youtube.com/results?search_query=karan+nawani+tauba+tumhare+ye+ishaare+suno+na+suno+na" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Tauba Tumhare Ye Ishaare / Suno Na Suno Na</a>
+                    <a target="_blank" data-title="pal pal dil ke paas reprised" href="https://www.youtube.com/results?search_query=karan+nawani+pal+pal+dil+ke+paas+reprised" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Pal Pal Dil Ke Paas (Reprised)</a>
+                    <a target="_blank" data-title="tujh mein rab dikhta hai janam dekhlo" href="https://www.youtube.com/results?search_query=karan+nawani+tujh+mein+rab+dikhta+hai+janam+dekhlo" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Tujh Mein Rab Dikhta Hai / Janam Dekhlo</a>
+                    <a target="_blank" data-title="ladki badi anjani hai" href="https://www.youtube.com/results?search_query=karan+nawani+ladki+badi+anjani+hai" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Ladki Badi Anjani Hai</a>
+                    <a target="_blank" data-title="jeena sirf mere liye" href="https://www.youtube.com/results?search_query=karan+nawani+jeena+sirf+mere+liye" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Jeena Sirf Mere Liye</a>
+                    <a target="_blank" data-title="mujhko kya hua hai koi mil gaya" href="https://www.youtube.com/results?search_query=karan+nawani+mujhko+kya+hua+hai+koi+mil+gaya" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Mujhko Kya Hua Hai</a>
+                    <a target="_blank" data-title="saathiya aye udi udi" href="https://www.youtube.com/results?search_query=karan+nawani+saathiya+aye+udi+udi" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Saathiya / Aye Udi Udi</a>
+                    <a target="_blank" data-title="tune jo na kaha" href="https://www.youtube.com/results?search_query=karan+nawani+tune+jo+na+kaha" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Tune Jo Na Kaha</a>
+                    <a target="_blank" data-title="my dil goes mmmm" href="https://www.youtube.com/results?search_query=karan+nawani+my+dil+goes+mmmm" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">My Dil Goes Mmmm</a>
+                    <a target="_blank" data-title="bol na halke halke" href="https://www.youtube.com/results?search_query=karan+nawani+bol+na+halke+halke" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Bol Na Halke Halke</a>
+                    <a target="_blank" data-title="tujhse shuru" href="https://www.youtube.com/results?search_query=karan+nawani+tujhse+shuru" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Tujhse Shuru</a>
+                    <a target="_blank" data-title="suraj hua maddham" href="https://www.youtube.com/results?search_query=karan+nawani+suraj+hua+maddham" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Suraj Hua Maddham</a>
+                    <a target="_blank" data-title="mera dil official music video" href="https://www.youtube.com/results?search_query=karan+nawani+mera+dil+official+music+video" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Mera Dil (Official Music Video)</a>
+                    <a target="_blank" data-title="mera dil official teaser" href="https://www.youtube.com/results?search_query=karan+nawani+mera+dil+official+teaser" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Mera Dil (Official Teaser)</a>
+                    <a target="_blank" data-title="dekho na" href="https://www.youtube.com/results?search_query=karan+nawani+dekho+na" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Dekho Na</a>
+                    <a target="_blank" data-title="sharara sharara" href="https://www.youtube.com/results?search_query=karan+nawani+sharara+sharara" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Sharara Sharara</a>
+                    <a target="_blank" data-title="maine jise abhi abhi dekha hai" href="https://www.youtube.com/results?search_query=karan+nawani+maine+jise+abhi+abhi+dekha+hai" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Maine Jise Abhi Abhi Dekha Hai</a>
+                    <a target="_blank" data-title="dil to pagal hai" href="https://www.youtube.com/results?search_query=karan+nawani+dil+to+pagal+hai" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Dil To Pagal Hai</a>
+                    <a target="_blank" data-title="chookar mere mann ko" href="https://www.youtube.com/results?search_query=karan+nawani+chookar+mere+mann+ko" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Chookar Mere Mann Ko</a>
+                    <a target="_blank" data-title="dil kho ke" href="https://www.youtube.com/results?search_query=karan+nawani+dil+kho+ke" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Dil Kho Ke</a>
+                    <a target="_blank" data-title="dil dooba" href="https://www.youtube.com/results?search_query=karan+nawani+dil+dooba" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Dil Dooba</a>
+                    <a target="_blank" data-title="khuda jaane hey shona" href="https://www.youtube.com/results?search_query=karan+nawani+khuda+jaane+hey+shona" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Khuda Jaane / Hey Shona</a>
+                    <a target="_blank" data-title="ye dooriyan" href="https://www.youtube.com/results?search_query=karan+nawani+ye+dooriyan" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Ye Dooriyan</a>
+                    <a target="_blank" data-title="le gayi le gayi" href="https://www.youtube.com/results?search_query=karan+nawani+le+gayi+le+gayi" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Le Gayi Le Gayi</a>
+                    <a target="_blank" data-title="my dil goes mmmm tera mera pyaar" href="https://www.youtube.com/results?search_query=karan+nawani+my+dil+goes+mmmm+tera+mera+pyaar" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">My Dil Goes Mmmm / Tera Mera Pyaar</a>
+                    <a target="_blank" data-title="humne tumko dil ye de diya" href="https://www.youtube.com/results?search_query=karan+nawani+humne+tumko+dil+ye+de+diya" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Humne Tumko Dil Ye De Diya</a>
+                    <a target="_blank" data-title="aankhon mein teri unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+aankhon+mein+teri+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Aankhon Mein Teri</a>
+                    <a target="_blank" data-title="tumse milke dil ka haal" href="https://www.youtube.com/results?search_query=karan+nawani+tumse+milke+dil+ka+haal" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Tumse Milke Dil Ka Haal</a>
+                    <a target="_blank" data-title="kal ho na ho unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+kal+ho+na+ho+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Kal Ho Naa Ho (Unplugged)</a>
+                    <a target="_blank" data-title="bholi si surat" href="https://www.youtube.com/results?search_query=karan+nawani+bholi+si+surat" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Bholi Si Surat</a>
+                    <a target="_blank" data-title="savage aankhein hai teri" href="https://www.youtube.com/results?search_query=karan+nawani+savage+aankhein+hai+teri" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Savage (Aankhein Hai Teri)</a>
+                    <a target="_blank" data-title="neele neele ambar par" href="https://www.youtube.com/results?search_query=karan+nawani+neele+neele+ambar+par" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Neele Neele Ambar Par</a>
+                    <a target="_blank" data-title="mere khwabon mein jo aaye" href="https://www.youtube.com/results?search_query=karan+nawani+mere+khwabon+mein+jo+aaye" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Mere Khwabon Mein Jo Aaye</a>
+                    <a target="_blank" data-title="dil ibadat unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+dil+ibadat+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Dil Ibadat (Unplugged)</a>
+                    <a target="_blank" data-title="jiya dhadak dhadak jaye" href="https://www.youtube.com/results?search_query=karan+nawani+jiya+dhadak+dhadak+jaye" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Jiya Dhadak Dhadak Jaye</a>
+                    <a target="_blank" data-title="tu hi meri shab hai unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+tu+hi+meri+shab+hai+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Tu Hi Meri Shab Hai</a>
+                    <a target="_blank" data-title="aaj din chadeya unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+aaj+din+chadeya+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Aaj Din Chadeya</a>
+                    <a target="_blank" data-title="kitna bechain hoke tumse mila" href="https://www.youtube.com/results?search_query=karan+nawani+kitna+bechain+hoke+tumse+mila" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Kitna Bechain Hoke Tumse Mila</a>
+                    <a target="_blank" data-title="zindagi ban gaye ho tum unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+zindagi+ban+gaye+ho+tum+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Zindagi Ban Gaye Ho Tum</a>
+                    <a target="_blank" data-title="ek ladki bhigi bhagi si intehaan ho gayi" href="https://www.youtube.com/results?search_query=karan+nawani+ek+ladki+bhigi+bhagi+si+intehaan+ho+gayi" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Ek Ladki Bhigi Bhagi Si / Intehaan Ho Gayi</a>
+                    <a target="_blank" data-title="oh oh jaane jaana unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+oh+oh+jaane+jaana+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Oh Oh Jaane Jaana</a>
+                    <a target="_blank" data-title="dil ne yeh kaha hai dil se unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+dil+ne+yeh+kaha+hai+dil+se+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Dil Ne Yeh Kaha Hai Dil Se</a>
+                    <a target="_blank" data-title="gulabi aankhen jo teri dekhi" href="https://www.youtube.com/results?search_query=karan+nawani+gulabi+aankhen+jo+teri+dekhi" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Gulabi Aankhen Jo Teri Dekhi</a>
+                    <a target="_blank" data-title="aankhein khuli ho ya ho band unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+aankhein+khuli+ho+ya+ho+band+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Aankhein Khuli Ho Ya Ho Band</a>
+                    <a target="_blank" data-title="aaj kal tere mere pyar ke charche chand sa roshan chehra" href="https://www.youtube.com/results?search_query=karan+nawani+aaj+kal+tere+mere+pyar+ke+charche+chand+sa+roshan+chehra" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Aaj Kal Tere Mere Pyar Ke Charche / Ye Chand Sa Roshan Chehra</a>
+                    <a target="_blank" data-title="main koi aisa geet gaoon ukulele" href="https://www.youtube.com/results?search_query=karan+nawani+main+koi+aisa+geet+gaoon+ukulele" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Main Koi Aisa Geet Gaoon</a>
+                    <a target="_blank" data-title="zara zara male version unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+zara+zara+male+version+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Zara Zara</a>
+                    <a target="_blank" data-title="kya hua tera wada unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+kya+hua+tera+wada+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Kya Hua Tera Wada</a>
+                    <a target="_blank" data-title="8 songs on 1 beat maine payal hai chhanki" href="https://www.youtube.com/results?search_query=karan+nawani+8+songs+on+1+beat+maine+payal+hai+chhanki" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Maine Payal Hai Chhanki</a>
+                    <a target="_blank" data-title="kajra mohabbat wala" href="https://www.youtube.com/results?search_query=karan+nawani+kajra+mohabbat+wala" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Kajra Mohabbat Wala</a>
+                    <a target="_blank" data-title="badan pe sitare unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+badan+pe+sitare+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Badan Pe Sitare</a>
+                    <a target="_blank" data-title="kabhi kabhi mere dil mein unplugged" href="https://www.youtube.com/results?search_query=karan+nawani+kabhi+kabhi+mere+dil+mein+unplugged" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Kabhi Kabhi Mere Dil Mein</a>
+                    <a target="_blank" data-title="kabhi aisa lagta hai ukulele" href="https://www.youtube.com/results?search_query=karan+nawani+kabhi+aisa+lagta+hai+ukulele" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Kabhi Aisa Lagta Hai</a>
+                    <a target="_blank" data-title="babli tero mobile acoustic" href="https://www.youtube.com/results?search_query=karan+nawani+babli+tero+mobile+acoustic" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Babli Tero Mobile</a>
+                    <a target="_blank" data-title="mere samne wali khidki mein ukulele" href="https://www.youtube.com/results?search_query=karan+nawani+mere+samne+wali+khidki+mein+ukulele" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Mere Samne Wali Khidki Mein</a>
+                    <a target="_blank" data-title="kabhi yaadon mein aau" href="https://www.youtube.com/results?search_query=karan+nawani+kabhi+yaadon+mein+aau" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Kabhi Yaadon Mein Aau</a>
+                    <a target="_blank" data-title="o oh jane jaana" href="https://www.youtube.com/results?search_query=karan+nawani+o+oh+jane+jaana" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">O Oh Jane Jaana</a>
+                    <a target="_blank" data-title="pehla nasha thinking out loud" href="https://www.youtube.com/results?search_query=karan+nawani+pehla+nasha+thinking+out+loud" class="song-card bg-white/5 p-5 rounded-xl hover:scale-105 transition">Pehla Nasha / Thinking Out Loud</a>
+                </div>
+            </section>
+            <!-- CONTACT -->
+            <section id="contact" class="section hidden-section flex flex-col items-center text-center px-6">
+                <h2 class="text-4xl font-bold text-purple-500 mb-6">Contact</h2>
+                <p class="text-gray-400">For collaborations & inquiries</p>
+                <p class="mt-4 font-semibold">📧 karannawaniofficial@gmail.com</p>
+            </section>
+        </main>
+        <!-- FOOTER -->
+        <footer class="fixed bottom-0 w-full bg-black/80 backdrop-blur-md border-t border-white/10 px-6 py-3 text-center text-sm text-gray-400">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-2 max-w-7xl mx-auto">
+                <p>© 2026 Karan Nawani. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.youtube.com/@karannawani" target="_blank" class="hover:text-purple-400">YouTube</a>
+                    <a href="https://www.instagram.com/karannawaniii/" target="_blank" class="hover:text-purple-400">Instagram</a>
+                    <a href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO4p4Z0u" target="_blank" class="hover:text-purple-400">Spotify</a>
+                    <a href="https://music.apple.com/in/artist/karan-nawani/1295109332" target="_blank" class="hover:text-purple-400">Apple Music</a>
+                    <a href="https://www.jiosaavn.com/artist/karan-nawani-songs/z0ZIS9pkpCE_" target="_blank" class="hover:text-purple-400">JioSaavn</a>
+                    <a href="https://hashfame.com/@karannawaniii" target="_blank" class="hover:text-purple-400">HashFame</a>
+                </div>
+            </div>
+        </footer>
+        <!-- JS -->
+        <script>
+            function showSection(id, btn) {
+              document.querySelectorAll('.section').forEach(s => {
+                s.classList.remove('active-section');
+                s.classList.add('hidden-section');
+              });
+            
+              document.getElementById(id).classList.remove('hidden-section');
+              document.getElementById(id).classList.add('active-section');
+            
+              document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+              if (btn) btn.classList.add('active');
+            }
+            
+            function filterSongs() {
+              const query = document.getElementById("songSearch").value.toLowerCase();
+              const songs = document.querySelectorAll(".song-card");
+              const noResults = document.getElementById("noResults"); 
+              const resultCount = document.getElementById("resultCount");
+              const totalSongs = songs.length;
+              let visibleCount = 0; 
+            
+              songs.forEach(song => {
+                const title = song.dataset.title;
+                const originalText = song.textContent;
+            
+                song.innerHTML = originalText;
+            
+                if (title.includes(query)) {
+                  song.style.display = "block";
+                  visibleCount++; 
+            
+                  if (query.length > 0) {
+                    const regex = new RegExp(`(${query})`, "gi");
+                    song.innerHTML = originalText.replace(regex, `<span class="highlight">$1</span>`);
+                  }
+                } else {
+                  song.style.display = "none";
+                }
+              });
+              if (query.length > 0) {
+              resultCount.textContent = `${visibleCount} / ${totalSongs} found`;
+              resultCount.classList.remove("hidden");
+            } else {
+              resultCount.classList.add("hidden");
+            }
+            
+              noResults.classList.toggle("hidden", visibleCount !== 0);
+            }
+            /* CLEAR SEARCH */
+            function clearSearch() {
+            const input = document.getElementById("songSearch");
+            input.value = "";
+            filterSongs();
+            toggleClearBtn();
+            document.getElementById("noResults").classList.add("hidden");
+            document.getElementById("resultCount").classList.add("hidden");
+            }
+            
+            /* SHOW / HIDE ❌ */
+            function toggleClearBtn() {
+            const input = document.getElementById("songSearch");
+            const btn = document.getElementById("clearBtn");
+            btn.classList.toggle("hidden", input.value.length === 0);
+            }
+            
+            /* ESC KEY SUPPORT */
+            document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+              clearSearch();
+            }
+            });
+            
+        </script>
+    </body>
+</html>
